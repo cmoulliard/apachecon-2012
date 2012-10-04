@@ -1,4 +1,3 @@
-
 # Introduction
 
 * What does modularity means ? - "Bried intro about what modularity means, concept, isolation, ... "
@@ -9,6 +8,7 @@
     * OSGI Service
     * JPA, Tx, HTTP, Blueprint - Spring DM 
 * What Apache offers/covers : OpenJPA, OpenEJB, OpenWebbeans, DeltaSpike, Aries, ...
+
 ---
 
 # Discover Karaf
@@ -20,6 +20,7 @@
 * Management - JMX
 * Aries
 * Testing : Pax Exam
+
 ---
 
 # Let's discuss a EE use case
@@ -27,6 +28,7 @@
 * Define and present the use case 
     * Example : Small web application to report (file, web service or REST) ticket and consult them. 
     * Technology used : Aries, Camel, OpenEJB, DeltaSpike, ....
+
 ---
 
 # Web 
@@ -36,6 +38,7 @@
 * Frameworks (supported) : Apache Wicket, GWT, JSF, JSP, Vaadin
 * Packaging : war, wab, bundle, eba
 * Demo
+
 ---
 
 # JPA
@@ -44,6 +47,7 @@
 * Aries JPA : JPA Container - Blueprint
 * Show some codes snippet
 * Demo
+
 ---
 
 # Transaction
@@ -54,6 +58,7 @@
 * Extend the example
 * Show some codes snippet
 * Demo
+
 ---
 
 # EJB 3.0
@@ -63,6 +68,7 @@
 * Communicate with your EJB 3.0 beans
 * Extend the example
 * Show some codes snippet 
+
 ---
 
 # CDI
@@ -72,17 +78,20 @@
 * OSGI CDI containers
 * Extend the example
 * Show some codes snippet 
+
 ---
 
 # All together
 
 * Big Demo
 * 
+
 ---
 
 # Conclusion #
 
 * Wrap up
 * Questions
+
 ---
 
