@@ -17,64 +17,52 @@
 package org.apache.con2012.karafee.dao;
 
 import org.apache.con2012.karafee.model.Incident;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
 
-/**
- *  DAO Incident class
- */
 public class IncidentDAO {
 
-    private long count = 0;
-    private HashMap<Long, Incident> incidents = new HashMap<Long, Incident>();
+  private static final Logger LOG = LoggerFactory.getLogger(IncidentDAO.class);
 
-    public IncidentDAO() {
-        init();
-    }
+  @PersistenceContext(unitName = "reportIncident", type = PersistenceContextType.EXTENDED)
+  private EntityManager em;
+  private static final String findIncidentByReference = "select i from Incident as i where i.incidentRef = :ref";
+  private static final String findIncident = "select i from Incident as i";
 
-    private void init() {
-        Incident ic = new Incident();
-        ic.setIncidentId(count);
-        ic.setFamilyName("Charles");
-        ic.setGivenName("Moulliard");
-        ic.setIncidentRef("123");
-        ic.setSummary("ApcheCon 2012 is great");
-        ic.setCreationDate(new Date());
-        ic.setIncidentDate(new Date());
-        ic.setPhone("+11 22 33 44 55");
-        ic.setEmail("cmoulliard@apache.org");
+  public List<Incident> findIncident() {
+    Query q = this.em.createQuery("select i from Incident as i");
 
-        incidents.put(count, ic);
-        count++;
-    }
+    List list = q.getResultList();
 
-    public Incident saveIncident(Incident incident) {
-        Incident ic = new Incident();
-        ic.setIncidentId(count++);
-        incidents.put(count, ic);
-        return ic;
-    }
+    return list;
+  }
 
-    public void removeIncident(long id) {
-        incidents.remove(id);
-    }
+  public List<Incident> findIncident(String key) {
+    Query q = this.em.createQuery("select i from Incident as i where i.incidentRef = :ref");
+    q.setParameter("ref", key);
+    List list = q.getResultList();
 
-    public Incident getIncident(long id) {
-        return incidents.get(id);
-    }
+    return list;
+  }
 
-    public List<Incident> findIncident() {
-        return new ArrayList<Incident>(incidents.values());
-    }
+  public Incident getIncident(long id) {
+    return (Incident)this.em.find(Incident.class, Long.valueOf(id));
+  }
 
-    public List<Incident> findIncident(String key) {
-        List<Incident> list = new ArrayList<Incident>();
-        list.add(incidents.get(Long.getLong(key)));
-        return list;
-    }
+  public void removeIncident(long id) {
+    Object record = this.em.find(Incident.class, Long.valueOf(id));
+    this.em.remove(record);
+    this.em.flush();
+  }
 
+  public void saveIncident(Incident incident) {
+    this.em.persist(incident);
+    this.em.flush();
+  }
 }
-
