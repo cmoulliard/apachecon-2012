@@ -64,3 +64,7 @@
     INSERT INTO REPORT.T_INCIDENT (INCIDENT_REF, INCIDENT_DATE,GIVEN_NAME,FAMILY_NAME,SUMMARY,DETAILS,EMAIL,PHONE) VALUES ('002','2011-03-22','Charles','Moulliard','Incident Webinar-002','This is a report incident for webinar-002','cmoulliard@fusesource.com','+111 10 20 300');
     INSERT INTO REPORT.T_INCIDENT (INCIDENT_REF, INCIDENT_DATE,GIVEN_NAME,FAMILY_NAME,SUMMARY,DETAILS,EMAIL,PHONE) VALUES ('003','2011-03-23','Charles','Moulliard','Incident Webinar-003','This is a report incident for webinar-003','cmoulliard@fusesource.com','+111 10 20 300');
     INSERT INTO REPORT.T_INCIDENT (INCIDENT_REF, INCIDENT_DATE,GIVEN_NAME,FAMILY_NAME,SUMMARY,DETAILS,EMAIL,PHONE) VALUES ('004','2011-03-24','Charles','Moulliard','Incident Webinar-004','This is a report incident for webinar-004','cmoulliard@fusesource.com','+111 10 20 300');
+
+
+
+REMARK : mvn:org.apache.camel.karaf/apache-camel/2.10.1/xml/features
