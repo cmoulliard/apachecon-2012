@@ -17,7 +17,7 @@
 -->
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
 
-    <bean id="incidentDAO" class="org.apache.con2012.karafee.dao.IncidentDAO2"/>
+    <bean id="incidentDAO" class="org.apache.con2012.karafee.dao.IncidentDAO"/>
 
     <bean id="incidentServiceBean" class="org.apache.con2012.karafee.service.impl.IncidentServiceImpl">
         <property name="incidentDAO" ref="incidentDAO"/>

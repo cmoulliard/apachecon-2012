@@ -16,7 +16,7 @@
  */
 package org.apache.con2012.karafee.service.impl;
 
-import org.apache.con2012.karafee.dao.IncidentDAO2;
+import org.apache.con2012.karafee.dao.IncidentDAO;
 import org.apache.con2012.karafee.model.Incident;
 import org.apache.con2012.karafee.service.IncidentService;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class IncidentServiceImpl implements IncidentService {
     private static final Logger LOG = LoggerFactory.getLogger(IncidentServiceImpl.class);
 
     /** The incident dao. */
-    private IncidentDAO2 incidentDAO;
+    private IncidentDAO incidentDAO;
 
     public void saveIncident(Incident incident) {
 
@@ -61,7 +61,7 @@ public class IncidentServiceImpl implements IncidentService {
      * 
      * @return the incident dao
      */
-    public IncidentDAO2 getIncidentDAO() {
+    public IncidentDAO getIncidentDAO() {
         return incidentDAO;
     }
 
@@ -71,7 +71,7 @@ public class IncidentServiceImpl implements IncidentService {
      * @param incidentDAO
      *            the new incident dao
      */
-    public void setIncidentDAO(IncidentDAO2 incidentDAO) {
+    public void setIncidentDAO(IncidentDAO incidentDAO) {
         this.incidentDAO = incidentDAO;
     }
 
