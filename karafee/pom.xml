@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.con2012.karafee</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>ApacheCon 2012 :: KarafEE :: Parent</name>
+
+    <properties>
+        <maven-bundle-plugin.version>2.5.0</maven-bundle-plugin.version>
+        <pax-wicket.version>1.1.0</pax-wicket.version>
+        <osgi.version>4.2.0</osgi.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <slf4j.version>1.6.2</slf4j.version>
+        <cglib.range>[2,3)</cglib.range>
+        <build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
+    </properties>
+
+    <modules>
+        <module>web-osgi</module>
+        <module>service</module>
+        <module>persistence</module>
+        <module>webservice</module>
+        <module>features</module>
+    </modules>
+</project>
+

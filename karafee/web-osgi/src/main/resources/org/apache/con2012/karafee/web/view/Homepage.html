@@ -1,0 +1,61 @@
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd" >
+<head>
+    <title>Report Incident</title>
+</head>
+<body>
+    <strong>Report Incident</strong>
+    <br/>
+    <p/>
+    <span wicket:id="message">message will be here</span>
+    <p/>
+    
+    <table cellspacing="0" class="dataview">
+        <tr>
+            <th>Id</th>
+            <th>Incident Date</th>
+            <th>Incident Ref</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Summary</th>
+            <th>Details</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Origin</th>
+            <th>Creation date</th>
+        </tr>
+        <tr wicket:id="simple">
+            <td><span wicket:id="incidentId">[incidentId]</span></td>
+            <td><span wicket:id="incidentDate">[incidentDate]</span></td>
+            <td><span wicket:id="incidentRef">[incidentRef]</span></td>
+            <td><span wicket:id="givenName">[givenName]</span> </td>
+                <td><span wicket:id="familyName">[familyName]</span></td>
+            <td><span wicket:id="summary">[summary]</span></td>
+            <td><span wicket:id="details">[details]</span></td>
+            <td><span wicket:id="email">[email]</span></td>
+            <td><span wicket:id="phone">[phone]</span></td>
+            <td><span wicket:id="creationUser">[creationUser]</span></td>
+            <td><span wicket:id="creationDate">[creationDate]</span></td>
+        </tr>
+    </table>
+    
+    <div wicket:id="navigator"></div>
+    
+</body>
+</html>
+
