@@ -25,14 +25,17 @@
     <repository>mvn:org.ops4j.pax.wicket/features/1.1.0/xml/features</repository>
 
     <feature name="apachecon2012" version="${project.version}" >
-        <feature version='${pax-wicket.version}'>wicket</feature>
         <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/2.2_2</bundle>
-
-        <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
+        <feature version='${pax-wicket.version}'>wicket</feature>
+        <feature>jdbc-driver-h2</feature>
 
         <bundle>mvn:org.apache.con2012.karafee/persistence/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/service/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/web-osgi/${project.version}</bundle>
+    </feature>
+
+    <feature name="jdbc-driver-h2" version="${h2.version}">
+        <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
     </feature>
 
     <!--
@@ -55,12 +58,8 @@
         <bundle>mvn:org.apache.openjpa/openjpa/${openjpa-version}</bundle>
      </feature>
 
-    <feature name="jdbc-driver-h2" version="${h2-version}">
-        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-dbcp/1.4_1</bundle>
-        <bundle>mvn:com.h2database/h2/${h2-version}</bundle>
-    </feature>
-
     <feature name="wicket" version="${wicket-version}">
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/2.2_2</bundle>
         <bundle>mvn:org.apache.wicket/wicket/${wicket-version}</bundle>
         <bundle>mvn:org.apache.wicket/wicket-ioc/${wicket-version}</bundle>
         <bundle>mvn:org.apache.wicket/wicket-spring/${wicket-version}</bundle>
