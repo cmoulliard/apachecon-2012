@@ -17,17 +17,33 @@
 
 package org.apache.con2012.karafee.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
-
-public class Incident extends Abstract implements Serializable {
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "Conference.findAll", query = "select i from Conference  i"),
+        @NamedQuery(name = "Conference.findByKey", query = "select i from Conference  i where i.ref = :key")
+})
+public class Conference extends EntityWithToString implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String incidentRef;
+    @Id
+    @GeneratedValue
+    private long id;
 
-    private Date incidentDate;
+    private String ref;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     private String givenName;
 
@@ -41,34 +57,30 @@ public class Incident extends Abstract implements Serializable {
 
     private String phone;
 
-    private long incidentId;
-
     private String creationUser;
 
-    private Date creationDate;
-
-    public long getIncidentId() {
-        return incidentId;
+    public long getId() {
+        return id;
     }
 
-    public void setIncidentId(long incidentId) {
-        this.incidentId = incidentId;
+    public void setId(long cId) {
+        this.id = cId;
     }
 
-    public String getIncidentRef() {
-        return incidentRef;
+    public String getRef() {
+        return ref;
     }
 
-    public void setIncidentRef(String incidentRef) {
-        this.incidentRef = incidentRef;
+    public void setRef(String cRef) {
+        this.ref = cRef;
     }
 
-    public Date getIncidentDate() {
-        return incidentDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setIncidentDate(Date incidentDate) {
-        this.incidentDate = incidentDate;
+    public void setDate(Date cDate) {
+        this.date = cDate;
     }
 
     public String getGivenName() {
@@ -127,11 +139,4 @@ public class Incident extends Abstract implements Serializable {
         this.creationUser = creationUser;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
 }

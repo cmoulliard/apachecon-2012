@@ -49,6 +49,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.con2012.karafee</groupId>
             <artifactId>service</artifactId>
             <version>${pom.version}</version>
@@ -109,12 +116,14 @@
                             org.ops4j.pax.wicket.api,
                             org.ops4j.pax.wicket.util,
                             org.osgi.framework,
+                            org.osgi.service.*,
                             org.osgi.service.blueprint,
                             net.sf.cglib.proxy;version="${cglib.range}",
                             net.sf.cglib.core;version="${cglib.range}",
                             net.sf.cglib.reflect;version="${cglib.range}",
                             javax.servlet,
-                            javax.servlet.http
+                            javax.servlet.http,
+                            *
                         </Import-Package>
                     </instructions>
                 </configuration>

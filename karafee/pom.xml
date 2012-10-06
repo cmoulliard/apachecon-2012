@@ -16,7 +16,10 @@
         <commons-lang.version>2.6</commons-lang.version>
         <slf4j.version>1.6.2</slf4j.version>
         <cglib.range>[2,3)</cglib.range>
+        <h2.version>1.3.168</h2.version>
         <build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
@@ -26,5 +29,13 @@
         <module>webservice</module>
         <module>features</module>
     </modules>
+  <dependencies>
+    <dependency> <!-- to debug -->
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.framework</artifactId>
+      <version>3.2.2</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>
 

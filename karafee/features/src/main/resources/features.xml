@@ -15,13 +15,21 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+<!--
+  To Test:
+    - addurl  mvn:org.apache.con2012.karafee/repository/1.0/xml/features
+    - features:install apachecon2012
+-->
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="karafEE-repo">
 
     <repository>mvn:org.ops4j.pax.wicket/features/1.1.0/xml/features</repository>
 
-    <feature name="reportincident" version="${project.version}" >
+    <feature name="apachecon2012" version="${project.version}" >
         <feature version='${pax-wicket.version}'>wicket</feature>
-        <!-- <feature>jdbc-driver-h2</feature>  -->
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/2.2_2</bundle>
+
+        <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
+
         <bundle>mvn:org.apache.con2012.karafee/persistence/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/service/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/web-osgi/${project.version}</bundle>

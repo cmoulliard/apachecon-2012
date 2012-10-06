@@ -31,6 +31,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0-4</version>
+            <!--<scope>provided</scope>--> <!-- bug to compile with java 6, use compile scope -->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openjpa</groupId>
+            <artifactId>openjpa</artifactId>
+            <version>2.2.0</version>
+            <!--<scope>provided</scope>--> <!-- bug to compile with java 6, use compile scope -->
+        </dependency>
+        <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>${commons-lang.version}</version>
@@ -48,7 +60,8 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             org.apache.commons.lang.builder,
-                            org.osgi.service.blueprint
+                            org.osgi.service.blueprint,
+                            *
                         </Import-Package>
                         <Export-Package>
                             !org.apache.con2012.karafee.dao.impl,
@@ -60,6 +73,25 @@
                         </Private-Package>
                     </instructions>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.openjpa</groupId>
+                <artifactId>openjpa-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <configuration>
+                    <includes>org/apache/con2012/karafee/model/*.class</includes>
+                    <addDefaultConstructor>true</addDefaultConstructor>
+                    <enforcePropertyRestrictions>true</enforcePropertyRestrictions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enhancer</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

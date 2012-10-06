@@ -16,11 +16,11 @@
  */
 package org.apache.con2012.karafee.service;
 
-import org.apache.con2012.karafee.model.Incident;
+import org.apache.con2012.karafee.model.Conference;
 
 import java.util.List;
 
-public interface IncidentService {
+public interface ConferenceService {
 
     /**
      * Gets incident.
@@ -28,35 +28,35 @@ public interface IncidentService {
      * @param id the id
      * @return the incident
      */
-    public Incident getIncident(long id);
+    public Conference findById(long id);
 
     /**
      * Find all Incidents.
      * 
-     * @return the list<org.apache.con2012.karafee.web.model.Incident>
+     * @return the list<org.apache.con2012.karafee.web.model.Conference>
      */
-    public List<Incident> findIncident();
+    public List<Conference> findAll();
 
     /**
-     * Find org.apache.con2012.karafee.web.model.Incident by key ref.
+     * Find org.apache.con2012.karafee.web.model.Conference by key ref.
      * 
      * @param key the key
      * @return the list< order>
      */
-    public List<Incident> findIncident(String key);
+    public List<Conference> findByKey(String key);
 
     /**
-     * Save org.apache.con2012.karafee.web.model.Incident.
+     * Save org.apache.con2012.karafee.web.model.Conference.
      * 
-     * @param incident the org.apache.con2012.karafee.web.model.Incident
+     * @param conference the org.apache.con2012.karafee.web.model.Conference
      */
-    public void saveIncident(Incident incident);
+    public void store(Conference conference);
 
     /**
-     * Removes the org.apache.con2012.karafee.web.model.Incident.
+     * Removes the org.apache.con2012.karafee.web.model.Conference.
      * 
      * @param id the id
      */
-    public void removeIncident(long id);
+    public void delete(long id);
 
 }
