@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.con2012.karafee.web.util.h2;
+package org.apache.con2012.karafee.web.util;
 
 import org.apache.con2012.karafee.dao.ConferenceRepository;
 import org.apache.con2012.karafee.model.Conference;

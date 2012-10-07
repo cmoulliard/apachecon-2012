@@ -53,6 +53,13 @@ public class ConferenceRepository {
         return em.createNamedQuery("Conference.findAll", Conference.class).getResultList();
     }
 
+    public List<Conference> findAll(final int first, final int count) {
+        return em.createNamedQuery("Conference.findAll", Conference.class)
+                    .setFirstResult(first)
+                    .setMaxResults(count)
+                    .getResultList();
+    }
+
     public List<Conference> findByKey(final String key) {
         return em.createNamedQuery("Conference.findByKey", Conference.class)
                     .setParameter("key", key)

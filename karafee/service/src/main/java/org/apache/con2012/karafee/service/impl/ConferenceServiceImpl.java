@@ -38,13 +38,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     private ConferenceRepository conferenceRepository;
 
     public void store(Conference conference) {
-
-        try {
-            conferenceRepository.store(conference);
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-        }
-
+        conferenceRepository.store(conference);
     }
 
     public void delete(long id) {
@@ -57,6 +51,11 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     public List<Conference> findAll() {
         return conferenceRepository.findAll();
+    }
+
+    @Override
+    public List<Conference> findAll(int first, int count) {
+        return conferenceRepository.findAll(first, count);
     }
 
     public List<Conference> findByKey(String key) {

@@ -37,6 +37,7 @@ import org.apache.wicket.request.resource.PackageResourceReference;
 import org.ops4j.pax.wicket.api.PaxWicketBean;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Homepage
@@ -66,14 +67,14 @@ public class Homepage extends WebPage {
      */
     public Homepage(final PageParameters parameters) {
 
-        LOG.debug("Blueprint service : " + conferenceService.toString());
+        LOG.debug("Blueprint service : " + conferenceService);
 
         // Add the simplest type of label
         add(new Label("message", "List of conference coming from web services or file : "));
 
         // Add paging
-        final DataView dataView = new DataView("simple", new ConferenceDataProvider()) {
-
+        final DataView<Conference> dataView = new DataView<Conference>("simple", new ConferenceDataProvider()) {
+            @Override
             public void populateItem(final Item item) {
                 final Conference conference = (Conference) item.getModelObject();
                 item.add(new Label("id", String.valueOf(conference.getId())));
@@ -103,23 +104,31 @@ public class Homepage extends WebPage {
 
     }
 
-    private class ConferenceDataProvider implements IDataProvider {
+    private class ConferenceDataProvider implements IDataProvider<Conference> {
+        private List<Conference> last = null;
 
-        public Iterator iterator(int first, int count) {
-            return conferenceService.findAll().iterator();
+        @Override
+        public Iterator iterator(final int first, final int count) {
+            last = conferenceService.findAll(first, count);
+            return last.iterator();
         }
 
+        @Override
         public int size() {
-            return conferenceService.findAll().size();
+            if (last == null) {
+                return 0;
+            }
+            return last.size();
         }
 
-        public IModel model(Object object) {
-            return new Model((Conference) object);
+        @Override
+        public IModel<Conference> model(final Conference object) {
+            return new Model<Conference>(object);
         }
 
+        @Override
         public void detach() {
-            // TODO Auto-generated method stub
-
+            // no-op
         }
     }
 

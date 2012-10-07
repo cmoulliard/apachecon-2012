@@ -28,14 +28,16 @@ public interface ConferenceService {
      * @param id the id
      * @return the incident
      */
-    public Conference findById(long id);
+    Conference findById(long id);
 
     /**
      * Find all Incidents.
      * 
      * @return the list<org.apache.con2012.karafee.web.model.Conference>
      */
-    public List<Conference> findAll();
+    List<Conference> findAll();
+
+    List<Conference> findAll(final int first, final int count);
 
     /**
      * Find org.apache.con2012.karafee.web.model.Conference by key ref.
@@ -43,20 +45,20 @@ public interface ConferenceService {
      * @param key the key
      * @return the list< order>
      */
-    public List<Conference> findByKey(String key);
+    List<Conference> findByKey(String key);
 
     /**
      * Save org.apache.con2012.karafee.web.model.Conference.
      * 
      * @param conference the org.apache.con2012.karafee.web.model.Conference
      */
-    public void store(Conference conference);
+    void store(Conference conference);
 
     /**
      * Removes the org.apache.con2012.karafee.web.model.Conference.
      * 
      * @param id the id
      */
-    public void delete(long id);
+    void delete(long id);
 
 }
