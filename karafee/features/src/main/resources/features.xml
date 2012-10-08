@@ -22,6 +22,7 @@
     <feature name="reportincident" version="${project.version}" >
         <feature version='${pax-wicket.version}'>wicket</feature>
         <feature>jdbc-driver-h2</feature>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/${org.apache.servicemix.bundles.cglib}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/persistence/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/service/${project.version}</bundle>
         <bundle>mvn:org.apache.con2012.karafee/web-osgi/${project.version}</bundle>
