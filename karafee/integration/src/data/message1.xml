@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <person user="james">
+<<<<<<< HEAD
     <firstName>Charles</firstName>
     <lastName>Moulliard</lastName>
     <city>Florennes</city>
+=======
+  <firstName>James</firstName>
+  <lastName>Strachan</lastName>
+  <city>London</city>
+>>>>>>> master
 </person>
