@@ -25,6 +25,7 @@
         <module>persistence</module>
         <module>webservice</module>
         <module>features</module>
+        <module>integration</module>
     </modules>
 </project>
 
