@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.con2012.karafee.model;
 
 import javax.persistence.Column;
@@ -23,20 +22,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(name = "Conference.findAll", query = "select i from Conference  i"),
+        @NamedQuery(name = "Conference.findByKey", query = "select i from Conference  i where i.ref = :key")
+})
 @Entity
-@Table(name = "T_INCIDENT")
-public class Incident extends Abstract implements Serializable {
+@Table(name = "T_CONFERENCE")
+public class Conference extends EntityWithToString implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "INCIDENT_REF", length = 55)
-    private String incidentRef;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = "CONFERENCE_ID")
+    private long id;
 
-    @Column(name = "INCIDENT_DATE")
-    private Date incidentDate;
+    @Column(name = "REF", length = 55)
+    private String ref;
 
     @Column(name = "GIVEN_NAME", length = 35)
     private String givenName;
@@ -44,7 +53,7 @@ public class Incident extends Abstract implements Serializable {
     @Column(name = "FAMILY_NAME", length = 35)
     private String familyName;
 
-    @Column(name = "SUMMARY", length = 35)
+    @Column(name = "SUMMARY", length = 80)
     private String summary;
 
     @Column(name = "DETAILS")
@@ -56,39 +65,35 @@ public class Incident extends Abstract implements Serializable {
     @Column(name = "PHONE", length = 35)
     private String phone;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "INCIDENT_ID")
-    private long incidentId;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "CONFERENCE_DATE")
+    private Date date;
 
     @Column(name = "CREATION_USER")
     private String creationUser;
 
-    @Column(name = "CREATION_DATE")
-    private Date creationDate;
-
-    public long getIncidentId() {
-        return incidentId;
+    public long getId() {
+        return id;
     }
 
-    public void setIncidentId(long incidentId) {
-        this.incidentId = incidentId;
+    public void setId(long cId) {
+        this.id = cId;
     }
 
-    public String getIncidentRef() {
-        return incidentRef;
+    public String getRef() {
+        return ref;
     }
 
-    public void setIncidentRef(String incidentRef) {
-        this.incidentRef = incidentRef;
+    public void setRef(String cRef) {
+        this.ref = cRef;
     }
 
-    public Date getIncidentDate() {
-        return incidentDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setIncidentDate(Date incidentDate) {
-        this.incidentDate = incidentDate;
+    public void setDate(Date cDate) {
+        this.date = cDate;
     }
 
     public String getGivenName() {
@@ -147,11 +152,4 @@ public class Incident extends Abstract implements Serializable {
         this.creationUser = creationUser;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
 }

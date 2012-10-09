@@ -5,12 +5,11 @@
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="reportIncident" transaction-type="RESOURCE_LOCAL">
-
-        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-        <non-jta-data-source>reportincident</non-jta-data-source>
-        <class>org.apache.con2012.karafee.model.Incident</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+<persistence-unit name="apachecon2012">
+    <jta-data-source>jdbc/apachecon2012</jta-data-source>
+    <class>org.apache.con2012.karafee.model.Conference</class>
+    <class>org.apache.con2012.karafee.model.EntityWithToString</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings"
@@ -20,9 +19,8 @@
             <property name="openjpa.jdbc.DBDictionary"
                       value="h2(useSchemaName=true)"/>
             <property name="openjpa.jdbc.Schema"
-                      value="REPORT"/>
+                      value="APACHECON"/>
         </properties>
 
     </persistence-unit>
 </persistence>
-        

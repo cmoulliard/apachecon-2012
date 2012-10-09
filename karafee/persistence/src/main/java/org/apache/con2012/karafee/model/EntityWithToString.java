@@ -19,7 +19,35 @@ package org.apache.con2012.karafee.model;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public abstract class Abstract {
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
+
+@MappedSuperclass
+public abstract class EntityWithToString {
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATION_DATE")
+    private Date creationDate;
+
+    @PrePersist
+    private void prePersist() {
+        if (creationDate == null) {
+            creationDate = new Date();
+        }
+    }
+
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 
     /*
      * (non-Javadoc)

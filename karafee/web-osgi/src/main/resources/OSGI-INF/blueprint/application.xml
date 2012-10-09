@@ -26,6 +26,6 @@
     mountPoint="demo/blueprint" />
 
   <!-- Lookup using interface to find the proxy object in the OSGI Service repo -->
-  <reference id="incidentServiceBean" interface="org.apache.con2012.karafee.service.IncidentService"/>
+  <reference id="conferenceServiceBean" interface="org.apache.con2012.karafee.service.ConferenceService" activation="lazy"/>
 
 </blueprint>

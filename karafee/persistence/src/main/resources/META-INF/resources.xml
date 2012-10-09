@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+  <Resource id="jdbc/apachecon2012" type="DataSource">
+    JdbcDriver = org.h2.Driver
+    JdbcUrl = jdbc:h2:tcp://localhost/~/apachecon2012
+    UserName = sa
+    Password =
+    JtaManaged = true
+  </Resource>
+
+</resources>

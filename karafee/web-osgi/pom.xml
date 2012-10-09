@@ -73,6 +73,7 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven-bundle-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -109,12 +110,14 @@
                             org.ops4j.pax.wicket.api,
                             org.ops4j.pax.wicket.util,
                             org.osgi.framework,
+                            org.osgi.service.*,
                             org.osgi.service.blueprint,
                             net.sf.cglib.proxy;version="${cglib.range}",
                             net.sf.cglib.core;version="${cglib.range}",
                             net.sf.cglib.reflect;version="${cglib.range}",
                             javax.servlet,
-                            javax.servlet.http
+                            javax.servlet.http,
+                            *
                         </Import-Package>
                     </instructions>
                 </configuration>
