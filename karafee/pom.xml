@@ -14,6 +14,7 @@
         <osgi.version>4.2.0</osgi.version>
         <commons-lang.version>2.6</commons-lang.version>
         <org.apache.servicemix.bundles.cglib>2.2_2</org.apache.servicemix.bundles.cglib>
+        <camel.version>2.11-SNAPSHOT</camel.version>
         <geronimo-jpa_2.0_spec.version>1.1</geronimo-jpa_2.0_spec.version>
         <slf4j.version>1.6.2</slf4j.version>
         <openjpa.version>2.2.0</openjpa.version>
@@ -31,7 +32,6 @@
         <module>webservice</module>
         <module>integration</module>
         <module>features</module>
-        <module>integration</module>
     </modules>
 </project>
 

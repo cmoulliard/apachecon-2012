@@ -18,6 +18,7 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="karafEE-repo">
 
     <repository>mvn:org.ops4j.pax.wicket/features/1.1.0/xml/features</repository>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/2.11-SNAPSHOT/xml/features</repository>
 
     <feature name="reportincident" version="${project.version}" >
         <feature version='${pax-wicket.version}'>wicket</feature>
@@ -31,6 +32,14 @@
     <feature name="jdbc-driver-h2" version="${h2.version}">
         <!-- <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-dbcp/1.4_1</bundle> -->
         <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
+    </feature>
+
+    <feature name="integration" version="${project.version}">
+       <feature version='${camel.version}'>camel</feature>
+       <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
+       <bundle>mvn:org.apache.deltaspike.cdictrl/deltaspike-cdictrl-api/0.4-incubating-SNAPSHOT</bundle>
+       <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
+        <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
     </feature>
 
     <!--

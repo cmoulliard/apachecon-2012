@@ -10,17 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>integration</artifactId>
-<<<<<<< HEAD
     <packaging>bundle</packaging>
-=======
-    <packaging>jar</packaging>
->>>>>>> master
     <name>ApacheCon 2012 :: KarafEE :: Integration</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <camel.version>2.11-SNAPSHOT</camel.version>
     </properties>
 
     <dependencies>
@@ -29,7 +24,6 @@
             <artifactId>camel-core</artifactId>
             <version>${camel.version}</version>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-cdi</artifactId>
@@ -41,8 +35,6 @@
             <version>${openejb-jee.version}</version>
             <scope>provided</scope>
         </dependency>
-=======
->>>>>>> master
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -89,8 +81,6 @@
                 <artifactId>camel-maven-plugin</artifactId>
                 <version>2.10.1</version>
             </plugin>
-
-<<<<<<< HEAD
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -102,23 +92,10 @@
                             *
                         </Import-Package>
                     </instructions>
-=======
-            <!-- Allows the example to be run via 'mvn compile exec:java' -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>org.apache.con2012.karafee.MainApp</mainClass>
-                    <includePluginDependencies>false</includePluginDependencies>
->>>>>>> master
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
+</project>
 
-<<<<<<< HEAD
-</project>
-=======
-</project>
->>>>>>> master
