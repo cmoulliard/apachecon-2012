@@ -51,12 +51,12 @@
         <dependency>
             <groupId>org.apache.con2012.karafee</groupId>
             <artifactId>service</artifactId>
-            <version>${pom.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.con2012.karafee</groupId>
             <artifactId>persistence</artifactId>
-            <version>${pom.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
