@@ -66,7 +66,7 @@ public class Homepage extends WebPage {
      */
     public Homepage(final PageParameters parameters) {
 
-        LOG.debug("Blueprint service : " + conferenceService);
+        LOG.debug("Coneference service : " + conferenceService);
 
         // Add the simplest type of label
         add(new Label("message", "List of conference coming from web services or file : "));
@@ -125,7 +125,7 @@ public class Homepage extends WebPage {
         }
     }
 
-    private class IncidentDetachModel extends LoadableDetachableModel {
+    private class ConferenceDetachModel extends LoadableDetachableModel {
 
         private long id;
 
@@ -137,11 +137,11 @@ public class Homepage extends WebPage {
         /**
          * @param i
          */
-        public IncidentDetachModel(Conference i) {
+        public ConferenceDetachModel(Conference i) {
             this(i.getId());
         }
 
-        public IncidentDetachModel(long id) {
+        public ConferenceDetachModel(long id) {
 
             if (id == 0) {
                 throw new IllegalArgumentException();
