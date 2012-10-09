@@ -66,5 +66,8 @@ public class ConferenceRepository {
                     .getResultList();
     }
 
+    public long countAll() {
+        return em.createNamedQuery("Conference.countAll", Long.class).getSingleResult();
+    }
 }
 

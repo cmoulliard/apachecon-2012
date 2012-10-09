@@ -31,7 +31,8 @@ import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(name = "Conference.findAll", query = "select i from Conference  i"),
-        @NamedQuery(name = "Conference.findByKey", query = "select i from Conference  i where i.ref = :key")
+        @NamedQuery(name = "Conference.findByKey", query = "select i from Conference  i where i.ref = :key"),
+        @NamedQuery(name = "Conference.countAll", query = "select count(i) from Conference  i")
 })
 @Entity
 @Table(name = "T_CONFERENCE")

@@ -45,6 +45,11 @@ public class ConferenceServiceImpl implements ConferenceService {
         conferenceRepository.delete(id);
     }
 
+    @Override
+    public long totalNumber() {
+        return conferenceRepository.countAll();
+    }
+
     public Conference findById(long id) {
         return conferenceRepository.findById(id);
     }

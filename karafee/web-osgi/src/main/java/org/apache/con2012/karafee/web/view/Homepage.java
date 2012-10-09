@@ -37,7 +37,6 @@ import org.apache.wicket.request.resource.PackageResourceReference;
 import org.ops4j.pax.wicket.api.PaxWicketBean;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Homepage
@@ -105,20 +104,14 @@ public class Homepage extends WebPage {
     }
 
     private class ConferenceDataProvider implements IDataProvider<Conference> {
-        private List<Conference> last = null;
-
         @Override
-        public Iterator iterator(final int first, final int count) {
-            last = conferenceService.findAll(first, count);
-            return last.iterator();
+        public Iterator<Conference> iterator(final int first, final int count) {
+            return conferenceService.findAll(first, count).iterator();
         }
 
         @Override
         public int size() {
-            if (last == null) {
-                return 0;
-            }
-            return last.size();
+            return (int) conferenceService.totalNumber();
         }
 
         @Override

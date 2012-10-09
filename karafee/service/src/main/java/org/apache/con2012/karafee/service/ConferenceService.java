@@ -61,4 +61,5 @@ public interface ConferenceService {
      */
     void delete(long id);
 
+    long totalNumber();
 }

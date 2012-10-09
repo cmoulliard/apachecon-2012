@@ -3,7 +3,7 @@
 
   <Resource id="jdbc/apachecon2012" type="DataSource">
     JdbcDriver = org.h2.Driver
-    JdbcUrl = jdbc:h2:tcp://localhost/~/apachecon2012
+    JdbcUrl = jdbc:h2:mem:apachecon2012
     UserName = sa
     Password =
     JtaManaged = true

@@ -5,22 +5,32 @@
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-<persistence-unit name="apachecon2012">
+  <persistence-unit name="apachecon2012">
     <jta-data-source>jdbc/apachecon2012</jta-data-source>
     <class>org.apache.con2012.karafee.model.Conference</class>
     <class>org.apache.con2012.karafee.model.EntityWithToString</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
-        <properties>
-            <property name="openjpa.jdbc.SynchronizeMappings"
-                      value="buildSchema(SchemaAction='add,deleteTableContents')"/>
-            <property name="openjpa.Log"
-                      value="DefaultLevel=TRACE, Runtime=TRACE, Tool=TRACE, SQL=TRACE"/>
-            <property name="openjpa.jdbc.DBDictionary"
-                      value="h2(useSchemaName=true)"/>
-            <property name="openjpa.jdbc.Schema"
-                      value="APACHECON"/>
-        </properties>
+    <properties>
+      <!--
+      <property name="openjpa.jdbc.SynchronizeMappings"
+                value="buildSchema(SchemaAction='add,deleteTableContents')"/>
+      -->
+      <property name="openjpa.jdbc.SynchronizeMappings"
+                value="buildSchema(ForeignKeys=true)"/>
+      <property name="openjpa.Log"
+                value="DefaultLevel=INFO, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
+      <property name="openjpa.jdbc.DBDictionary"
+                value="h2(useSchemaName=true)"/>
+      <!--
+      <property name="openjpa.jdbc.Schema"
+                value="APACHECON"/>
+      -->
 
-    </persistence-unit>
+      <!-- force initialization at startup -->
+      <property name="openejb.jpa.init-entitymanager"
+                value="true" />
+    </properties>
+
+  </persistence-unit>
 </persistence>
