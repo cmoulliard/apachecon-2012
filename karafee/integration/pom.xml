@@ -93,6 +93,7 @@
                             org.apache.camel,
                             org.apache.camel.cdi,
                             org.apache.camel.cdi.internal,
+                            org.apache.deltaspike.core.api.provider,
                             *
                         </Import-Package>
                     </instructions>

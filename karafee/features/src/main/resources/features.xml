@@ -39,11 +39,10 @@
     </feature>
 
     <feature name="integration" version="${project.version}">
-       <feature version='${camel.version}'>camel</feature>
+       <feature version='${camel.version}'>camel-core</feature>
        <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
-       <bundle>mvn:org.apache.deltaspike.cdictrl/deltaspike-cdictrl-api/0.4-incubating-SNAPSHOT</bundle>
        <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
-        <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
+       <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
     </feature>
 
     <!--
