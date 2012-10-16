@@ -43,18 +43,6 @@
         <bundle start-level="80">mvn:org.apache.con2012.karafee/web/${project.version}/war</bundle>
     </feature>
 
-    <feature name="jdbc-driver-h2" version="${h2.version}">
-        <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
-    </feature>
-
-    <feature name="integration" version="${project.version}">
-       <feature version='${camel.version}'>camel</feature>
-       <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
-       <!-- <bundle>mvn:org.apache.deltaspike.cdictrl/deltaspike-cdictrl-api/0.4-incubating-SNAPSHOT</bundle> -->
-       <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
-       <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
-    </feature>
-
     <feature name="wicket-web" version="${wicket.version}">
         <feature>spring</feature>
         <feature>spring-web</feature>
@@ -65,6 +53,18 @@
         <bundle>mvn:org.apache.wicket/wicket-ioc/${wicket.version}</bundle>
         <bundle>mvn:org.apache.wicket/wicket-spring/${wicket.version}</bundle>
         <bundle>mvn:org.apache.wicket/wicket-cdi/${wicket.version}</bundle>
+    </feature>
+
+
+    <feature name="jdbc-driver-h2" version="${h2.version}">
+        <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
+    </feature>
+
+    <feature name="integration" version="${project.version}">
+       <feature version='${camel.version}'>camel-core</feature>
+       <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
+       <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
+       <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
     </feature>
 
     <!--
