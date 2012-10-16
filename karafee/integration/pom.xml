@@ -91,6 +91,11 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             org.apache.camel,
+                            org.apache.camel.impl,
+                            org.apache.camel.support,
+                            org.apache.camel.spi,
+                            org.apache.camel.component,
+                            org.apache.camel.component.properties,
                             org.apache.camel.cdi,
                             org.apache.camel.cdi.internal,
                             org.apache.deltaspike.core.api.provider,
