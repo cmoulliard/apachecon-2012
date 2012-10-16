@@ -34,6 +34,15 @@
         <bundle>mvn:org.apache.con2012.karafee/web-osgi/${project.version}</bundle>
     </feature>
 
+    <feature name="apachecon2012-web" version="${project.version}" >
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/2.2_2</bundle>
+        <feature version='${wicket.version}'>wicket-web</feature>
+        <feature>jdbc-driver-h2</feature>
+        <bundle>mvn:org.apache.con2012.karafee/persistence/${project.version}</bundle>
+        <bundle>mvn:org.apache.con2012.karafee/service/${project.version}</bundle>
+        <bundle start-level="80">mvn:org.apache.con2012.karafee/web/${project.version}/war</bundle>
+    </feature>
+
     <feature name="jdbc-driver-h2" version="${h2.version}">
         <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
     </feature>
@@ -41,9 +50,21 @@
     <feature name="integration" version="${project.version}">
        <feature version='${camel.version}'>camel</feature>
        <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
-       <bundle>mvn:org.apache.deltaspike.cdictrl/deltaspike-cdictrl-api/0.4-incubating-SNAPSHOT</bundle>
+       <!-- <bundle>mvn:org.apache.deltaspike.cdictrl/deltaspike-cdictrl-api/0.4-incubating-SNAPSHOT</bundle> -->
        <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
-        <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
+       <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
+    </feature>
+
+    <feature name="wicket-web" version="${wicket.version}">
+        <feature>spring</feature>
+        <feature>spring-web</feature>
+        <feature>spring-dm-web</feature>
+        <bundle>mvn:org.apache.wicket/wicket-core/${wicket.version}</bundle>
+        <bundle>mvn:org.apache.wicket/wicket-request/${wicket.version}</bundle>
+        <bundle>mvn:org.apache.wicket/wicket-util/${wicket.version}</bundle>
+        <bundle>mvn:org.apache.wicket/wicket-ioc/${wicket.version}</bundle>
+        <bundle>mvn:org.apache.wicket/wicket-spring/${wicket.version}</bundle>
+        <bundle>mvn:org.apache.wicket/wicket-cdi/${wicket.version}</bundle>
     </feature>
 
     <!--

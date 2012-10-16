@@ -2,6 +2,8 @@ package org.apache.con2012.karafee.integration;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
@@ -14,6 +16,8 @@ import javax.inject.Inject;
 @Startup
 @ApplicationScoped
 public class MyRouteBuilder extends RouteBuilder {
+
+    private static Logger logger = LoggerFactory.getLogger(MyRouteBuilder.class);
 
     @Inject
     MyBean mybean;
@@ -33,7 +37,8 @@ public class MyRouteBuilder extends RouteBuilder {
                 .otherwise()
                 .to("file:target/messages/others");
 
-        from("timer:test")
+        from("timer://apacheCon2012?fixedRate=true&period=10000")
+          .setBody().simple(">> Hello for ApacheCon 2012 conferences ....")
           .bean(mybean);
     }
 

@@ -20,9 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.con2012.karafee.model.Conference;
 import org.apache.con2012.karafee.service.ConferenceService;
-import org.apache.con2012.karafee.web.util.ServiceLocator;
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
@@ -34,8 +32,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.request.resource.PackageResourceReference;
-import org.ops4j.pax.wicket.api.PaxWicketBean;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import javax.inject.Inject;
 import java.util.Iterator;
@@ -43,35 +40,26 @@ import java.util.Iterator;
 /**
  * Homepage
  */
-public class Homepage extends WebPage {
+public class HomePage extends WebPage {
 
     private static final long serialVersionUID = 1L;
-    private static final transient Log LOG = LogFactory.getLog(Homepage.class);
+    private static final Log LOG = LogFactory.getLog(HomePage.class);
 
-    // @PaxWicketBean(name = "conferenceServiceBean")
-    // @Inject
+    //ServiceLocator sl = new ServiceLocator();
+    //private ConferenceService conferenceService = sl.getConferenceService();
 
-    ServiceLocator sl = new ServiceLocator();
-    private ConferenceService conferenceService = sl.getConferenceService();
-
-
-    @Override
-    public void renderHead(IHeaderResponse response) {
-        super.renderHead(response);
-        response.renderCSSReference(new
-                PackageResourceReference(getClass(), "org/apache/con2012/karafee/web/view/styles/style.css"));
-    }
-
+    @SpringBean
+    private ConferenceService conferenceService;
 
     /**
      * Constructor that is invoked when page is invoked without a session.
-     * 
+     *
      * @param parameters
      *            Page parameters
      */
-    public Homepage(final PageParameters parameters) {
+    public HomePage(final PageParameters parameters) {
 
-        LOG.debug("Coneference service : " + conferenceService);
+        LOG.debug("Conference service : " + conferenceService);
 
         // Add the simplest type of label
         add(new Label("message", "List of conference coming from web services or file : "));
@@ -94,14 +82,14 @@ public class Homepage extends WebPage {
                 item.add(new Label("creationDate", String.valueOf(conference.getCreationDate())));
 
                 item.add(new AttributeModifier("class", new AbstractReadOnlyModel() {
-                            @Override
-                            public Object getObject() {
-                                return (item.getIndex() % 2 == 1) ? "even" : "odd";
-                            }
-                        }));
+                    @Override
+                    public Object getObject() {
+                        return (item.getIndex() % 2 == 1) ? "even" : "odd";
+                    }
+                }));
             }
         };
-        
+
         dataView.setItemsPerPage(10);
         add(dataView);
         add(new PagingNavigator("navigator", dataView));
@@ -110,12 +98,12 @@ public class Homepage extends WebPage {
 
     private class ConferenceDataProvider implements IDataProvider<Conference> {
         @Override
-        public Iterator<Conference> iterator(final int first, final int count) {
-            return conferenceService.findAll(first, count).iterator();
+        public Iterator<Conference> iterator(final long first, final long count) {
+            return conferenceService.findAll((int)first, (int)count).iterator();
         }
 
         @Override
-        public int size() {
+        public long size() {
             return (int) conferenceService.totalNumber();
         }
 

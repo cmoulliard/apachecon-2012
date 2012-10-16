@@ -16,33 +16,42 @@
  */
 package org.apache.con2012.karafee.web.view;
 
-import org.apache.webbeans.config.WebBeansContext;
-import org.apache.wicket.cdi.CdiConfiguration;
-import org.apache.wicket.cdi.ConversationPropagation;
 import org.apache.wicket.protocol.http.WebApplication;
-
-import javax.enterprise.inject.spi.BeanManager;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 /**
- * ApacheCon 2012 KarafEE - Wicket Demo
+ *
  */
 public class WicketApplication extends WebApplication {
-
+    
+    /**
+     * Init
+     */
     public void init() {
         super.init();
-        BeanManager bm = WebBeansContext.currentInstance().getBeanManagerImpl();
+        getComponentInstantiationListeners().add(new SpringComponentInjector(this));
 
-        // new CdiConfiguration(bm)
-        //        .setPropagation(ConversationPropagation.NONBOOKMARKABLE)
-        //        .configure(this);
+        // Retrieve BeanManager for injection
+        // BeanManagerProvider bmp = BeanManagerProvider.getInstance();
+        // BeanManager bm = bmp.getBeanManager();
+
+        // BeanManager bm = WebBeansContext.currentInstance().getBeanManagerImpl();
+        // new CdiConfiguration(bm).configure(this);
+
     }
 
+    
+    /**
+     * Constructor
+     */
     public WicketApplication() {
     }
-
-    @Override
-    public Class<Homepage> getHomePage() {
-        return Homepage.class;
+    
+    /**
+     * @see org.apache.wicket.Application#getHomePage()
+     */
+    public Class<HomePage> getHomePage() {
+        return HomePage.class;
     }
 
 }
