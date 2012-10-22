@@ -37,7 +37,7 @@ public class MyRouteBuilder extends RouteBuilder {
                 .otherwise()
                 .to("file:target/messages/others");
 
-        from("timer://apacheCon2012?fixedRate=true&period=10000")
+        from("timer://apacheCon2012?fixedRate=true&period=20000")
           .setBody().simple(">> Hello for ApacheCon 2012 conferences ....")
           .bean(mybean);
     }
