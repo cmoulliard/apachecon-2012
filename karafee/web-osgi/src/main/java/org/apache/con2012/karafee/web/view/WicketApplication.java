@@ -30,7 +30,9 @@ public class WicketApplication extends WebApplication {
 
     public void init() {
         super.init();
-        BeanManager bm = WebBeansContext.currentInstance().getBeanManagerImpl();
+
+        // don't call it now since if the app is nto deployed it will simply not be found
+        // BeanManager bm = WebBeansContext.currentInstance().getBeanManagerImpl();
 
         // new CdiConfiguration(bm)
         //        .setPropagation(ConversationPropagation.NONBOOKMARKABLE)

@@ -20,7 +20,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.con2012.karafee.model.Conference;
 import org.apache.con2012.karafee.service.ConferenceService;
-import org.apache.con2012.karafee.web.util.ServiceLocator;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebPage;
@@ -37,7 +36,6 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.ops4j.pax.wicket.api.PaxWicketBean;
 
-import javax.inject.Inject;
 import java.util.Iterator;
 
 /**
@@ -48,11 +46,8 @@ public class Homepage extends WebPage {
     private static final long serialVersionUID = 1L;
     private static final transient Log LOG = LogFactory.getLog(Homepage.class);
 
-    // @PaxWicketBean(name = "conferenceServiceBean")
-    // @Inject
-
-    ServiceLocator sl = new ServiceLocator();
-    private ConferenceService conferenceService = sl.getConferenceService();
+    @PaxWicketBean(name = "conferenceServiceBean")
+    private ConferenceService conferenceService;
 
 
     @Override

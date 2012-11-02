@@ -99,6 +99,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             org.apache.con2012.karafee.service,
+                            org.apache.con2012.karafee.dao,
                             org.apache.con2012.karafee.model,
                             org.apache.commons.lang.builder,
                             org.apache.commons.logging,
