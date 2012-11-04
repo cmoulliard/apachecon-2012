@@ -16,12 +16,7 @@
  */
 package org.apache.con2012.karafee.web.view;
 
-import org.apache.webbeans.config.WebBeansContext;
-import org.apache.wicket.cdi.CdiConfiguration;
-import org.apache.wicket.cdi.ConversationPropagation;
 import org.apache.wicket.protocol.http.WebApplication;
-
-import javax.enterprise.inject.spi.BeanManager;
 
 /**
  * ApacheCon 2012 KarafEE - Wicket Demo

@@ -17,10 +17,12 @@
 package org.apache.con2012.karafee.dao;
 
 import org.apache.con2012.karafee.model.Conference;
+import org.apache.con2012.karafee.monitoring.RepositoryMonitoring;
 
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -35,9 +37,13 @@ public class ConferenceRepository {
     @PersistenceContext(unitName = "apachecon2012")
     private EntityManager em;
 
+    @Inject
+    private RepositoryMonitoring monitor;
+
     public Conference store(final Conference conference) {
         em.persist(conference);
         em.flush();
+        monitor.inc();
         return conference;
     }
 

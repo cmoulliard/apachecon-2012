@@ -35,8 +35,10 @@ public class DataLoader {
     private void init() throws ParseException { // some provisioning
         addConference("Moulliard", "Charles", "EE-1", "KarafEE - When OSGI modularity meets J2EE world (present and future)",
                         new Date(), new Date(), "+11 22 33 44 55", "charles.moulliard@apache.org");
-        addConference("Blevins", "David", "EE-2", "Apache TomEE, Java EE 6 Web Profile on Tomcat",
-                new Date(), new Date(), "+11 22 33 44 56", "david.blevins@apache.org");
+        addConference("Manni-Bucau", "Romain", "EE-2", "KarafEE - When OSGI modularity meets J2EE world (present and future)",
+                new Date(), new Date(), "+11 22 33 44 56", "rmannibucau@apache.org");
+        addConference("Blevins", "David", "EE-3", "Apache TomEE, Java EE 6 Web Profile on Tomcat",
+                new Date(), new Date(), "+11 22 33 44 57", "david.blevins@apache.org");
     }
 
     private void addConference(final String familyName, final String givenName, final String ref,

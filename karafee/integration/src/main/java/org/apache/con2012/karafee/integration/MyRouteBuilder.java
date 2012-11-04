@@ -5,7 +5,6 @@ import org.apache.camel.cdi.ContextName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -13,7 +12,6 @@ import javax.inject.Inject;
  *   A Camel Route CDI managed
  */
 @ContextName
-@Startup
 @ApplicationScoped
 public class MyRouteBuilder extends RouteBuilder {
 
