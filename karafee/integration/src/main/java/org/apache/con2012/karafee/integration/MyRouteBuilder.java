@@ -3,8 +3,7 @@ package org.apache.con2012.karafee.integration;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
 import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
-import org.apache.con2012.karafee.integration.model.ConferenceCsvModel;
-import org.apache.con2012.karafee.service.ConferenceService;
+import org.apache.camel.model.dataformat.BindyType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,15 +22,15 @@ public class MyRouteBuilder extends RouteBuilder {
     @Inject
     MyBean mybean;
 
-    BindyCsvDataFormat df = new BindyCsvDataFormat("org.apache.con2012.karafee.integration.model");
+    // BindyCsvDataFormat df = new BindyCsvDataFormat("org.apache.con2012.karafee.integration.model");
 
     /**
      * Let's configure the Camel routing rules using Java & CDI
      */
     public void configure() {
 
-        from("file://data/conference/?move=backup/${date:now:yyyyMMdd}/${file:name.noext}.bak")
-          .unmarshal(df)
+        from("file://data/conference/?move=backup/${date:now:yyyyMMdd}/${file:name.noext}.bak&moveFailed=failed/${date:now:yyyyMMdd}")
+          .unmarshal().bindy(BindyType.Csv,"org.apache.con2012.karafee.integration.model")
           .to("direct:saveConference");
 
         from("direct:saveConference")

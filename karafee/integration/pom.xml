@@ -107,6 +107,10 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             org.apache.camel,
+                            org.apache.camel.model.dataformat,
+                            org.apache.camel.dataformat.bindy,
+                            org.apache.camel.dataformat.bindy.csv,
+                            org.apache.camel.dataformat.bindy.annotation,
                             org.apache.camel.impl,
                             org.apache.camel.support,
                             org.apache.camel.spi,
@@ -120,9 +124,6 @@
                         <Private-Package>
                             org.apache.con2012.karafee.integration.model
                         </Private-Package>
-                        <Export-Package>
-                            !org.apache.con2012.karafee.integration.model
-                        </Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
