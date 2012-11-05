@@ -35,20 +35,11 @@ public class MyRouteBuilder extends RouteBuilder {
           .to("direct:saveConference");
 
         from("direct:saveConference")
-          .bean(mybean);
+          .bean(mybean,"saveConference");
 
         from("timer://apacheCon2012?fixedRate=true&period=25000")
-          .setBody().simple(">> Hello for ApacheCon 2012 conferences ....")
-          .bean(mybean);
-
-        /*
-                from("file:apachecon2012/data?noop=true")
-                .choice()
-                .when(xpath("/person/city = 'Florennes'"))
-                .to("file:target/messages/belgium")
-                .otherwise()
-                .to("file:target/messages/others");
-         */
+          .setBody().simple(">> Hello to participants of ApacheCon 2012 Europe conferences")
+          .bean(mybean,"sayHello");
 
     }
 

@@ -15,7 +15,7 @@ public class MyBean {
     @Inject
     ConferenceService conferenceService;
 
-    public void someMethod(String body) {
+    public void sayHello(String body) {
         System.out.println("Message received : " + body);
     }
 

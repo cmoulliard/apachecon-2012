@@ -117,6 +117,12 @@
                             org.apache.deltaspike.core.api.provider,
                             *
                         </Import-Package>
+                        <Private-Package>
+                            org.apache.con2012.karafee.integration.model
+                        </Private-Package>
+                        <Export-Package>
+                            !org.apache.con2012.karafee.integration.model
+                        </Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
