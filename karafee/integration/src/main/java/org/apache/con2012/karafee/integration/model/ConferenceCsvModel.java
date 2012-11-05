@@ -3,9 +3,6 @@ package org.apache.con2012.karafee.integration.model;
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 
 /**
@@ -13,8 +10,7 @@ import java.util.Date;
  */
 
 @CsvRecord(separator = ",")
-public class ConferenceCsvModel
-{
+public class ConferenceCsvModel {
 
     private static final long serialVersionUID = 1L;
 

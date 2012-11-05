@@ -23,12 +23,12 @@ public class MyRouteBuilder extends RouteBuilder {
     @Inject
     MyBean mybean;
 
+    BindyCsvDataFormat df = new BindyCsvDataFormat("org.apache.con2012.karafee.integration.model");
+
     /**
      * Let's configure the Camel routing rules using Java & CDI
      */
     public void configure() {
-
-        BindyCsvDataFormat df = new BindyCsvDataFormat("org.apache.con2012.karafee.integration.model");
 
         from("file://data/conference/?move=backup/${date:now:yyyyMMdd}/${file:name.noext}.bak")
           .unmarshal(df)
