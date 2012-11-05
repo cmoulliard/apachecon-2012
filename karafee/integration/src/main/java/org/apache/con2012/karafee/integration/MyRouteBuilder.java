@@ -4,6 +4,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
 import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
 import org.apache.camel.model.dataformat.BindyType;
+import org.apache.camel.model.dataformat.CsvDataFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,12 +30,16 @@ public class MyRouteBuilder extends RouteBuilder {
      */
     public void configure() {
 
+        CsvDataFormat csv = new CsvDataFormat();
+
         from("file://data/conference/?move=backup/${date:now:yyyyMMdd}/${file:name.noext}.bak&moveFailed=failed/${date:now:yyyyMMdd}")
-          .unmarshal().bindy(BindyType.Csv,"org.apache.con2012.karafee.integration.model")
+          //.unmarshal().bindy(BindyType.Csv,"org.apache.con2012.karafee.integration.model")
+          .unmarshal(csv)
           .to("direct:saveConference");
 
         from("direct:saveConference")
-          .bean(mybean,"saveConference");
+          .bean(mybean,"mapModel")
+          .bean(mybean,"saveCsvConference");
 
         from("timer://apacheCon2012?fixedRate=true&period=25000")
           .setBody().simple(">> Hello to participants of ApacheCon 2012 Europe conferences")

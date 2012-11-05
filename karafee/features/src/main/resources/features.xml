@@ -62,7 +62,8 @@
 
     <feature name="apachecon2012-integration" version="${project.version}">
        <feature version='${camel.version}'>camel-core</feature>
-       <feature version='${camel.version}'>camel-bindy</feature>
+        <feature version='${camel.version}'>camel-bindy</feature>
+       <feature version='${camel.version}'>camel-csv</feature>
        <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
        <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
        <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>

@@ -111,6 +111,7 @@
                             org.apache.camel.dataformat.bindy,
                             org.apache.camel.dataformat.bindy.csv,
                             org.apache.camel.dataformat.bindy.annotation,
+                            org.apache.camel.dataformat.csv,
                             org.apache.camel.impl,
                             org.apache.camel.support,
                             org.apache.camel.spi,
