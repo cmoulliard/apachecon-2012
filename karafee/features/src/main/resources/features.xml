@@ -60,8 +60,9 @@
         <bundle>mvn:com.h2database/h2/${h2.version}</bundle>
     </feature>
 
-    <feature name="integration" version="${project.version}">
+    <feature name="apachecon2012-integration" version="${project.version}">
        <feature version='${camel.version}'>camel-core</feature>
+       <feature version='${camel.version}'>camel-bindy</feature>
        <bundle>mvn:org.apache.deltaspike.core/deltaspike-core-api/0.4-incubating-SNAPSHOT</bundle>
        <bundle>mvn:org.apache.camel/camel-cdi/2.11-SNAPSHOT</bundle>
        <bundle>mvn:org.apache.con2012.karafee/integration/${project.version}</bundle>
