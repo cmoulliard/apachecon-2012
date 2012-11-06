@@ -54,7 +54,7 @@ public class Conference extends EntityWithToString implements Serializable {
     @Column(name = "FAMILY_NAME", length = 35)
     private String familyName;
 
-    @Column(name = "SUMMARY", length = 80)
+    @Column(name = "SUMMARY", length = 250)
     private String summary;
 
     @Column(name = "DETAILS")
